@@ -1,0 +1,12 @@
+﻿@model IEnumerable<WebApplication1.Models.Lead>
+@{
+    ViewBag.Title = "Всі ліди";
+}
+<a asp-action="Create">Додати ліда</a>
+<table class="table">
+    <tr><td>Ім'я</td><td>Прізвище</td><td>Ссилка на компанію</td><td>Можлива сума угоди</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Name</td><td>@item.Surname</td><td>@item.CompanyLink</td><td>@item.Salary</td><td><a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id">Видалити</a></td></tr>
+    }
+</table>
